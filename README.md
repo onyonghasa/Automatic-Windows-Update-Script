@@ -31,7 +31,7 @@ It also ensures that the required PowerShell repository and module (`PSWindowsUp
 
 ## 🚀 Installation
 
-1. Download or copy the script:
+1. Download or copy the script: UpdateWindowsAuto.ps1.
 2. Save it anywhere (e.g., Desktop or Scripts folder).
 3. Open **PowerShell as Administrator**.
 4. Allow the script to run for this session:
