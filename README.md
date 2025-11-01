@@ -35,3 +35,6 @@ It also ensures that the required PowerShell repository and module (`PSWindowsUp
 2. Save it anywhere (e.g., Desktop or Scripts folder).
 3. Open **PowerShell as Administrator**.
 4. Allow the script to run for this session:
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope Process
+```
