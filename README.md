@@ -1,66 +1,84 @@
-🪟 Automatic Windows Update Script
-UpdateWindowsAuto.ps1
+# 🪟 Automatic Windows Update Script  
+### `UpdateWindowsAuto.ps1`
 
-A simple PowerShell script that automatically checks for and installs all available Windows Updates.
-It also ensures that the required PowerShell repository and module (PSWindowsUpdate) are properly configured before running updates.
+A simple PowerShell script that automatically checks for and installs all available Windows Updates.  
+It also ensures that the required PowerShell repository and module (`PSWindowsUpdate`) are properly configured before running updates.
 
-🔧 Features
+---
 
-Checks for Administrator privileges
+## 🔧 Features
 
-Verifies that PowerShell Gallery (PSGallery) is trusted
+- Checks for **Administrator privileges**
+- Verifies that **PowerShell Gallery (PSGallery)** is trusted
+- Installs **PSWindowsUpdate** module if missing
+- Scans for available Windows updates
+- Installs all updates automatically (`-AcceptAll -AutoReboot`)
+- Saves a **log file** of update history to `C:\WindowsUpdate_Log.txt`
+- Displays all progress directly in PowerShell console
 
-Installs PSWindowsUpdate module if missing
+---
 
-Scans for available Windows updates
+## 📋 Requirements
 
-Installs all updates automatically (-AcceptAll -AutoReboot)
+- **Windows 10 / 11**
+- **PowerShell 5.1+** or **PowerShell 7+**
+- Internet connection
+- Must be run as **Administrator**
 
-Saves a log file of update history to C:\WindowsUpdate_Log.txt
+---
 
-Displays all progress directly in PowerShell console
+## 🚀 Installation & Usage
 
-📋 Requirements
+1. **Download or copy** the script:  
+   `UpdateWindowsAuto.ps1`
 
-Windows 10 / 11
+2. **Save it** anywhere (for example: `Desktop`, `C:\Scripts`, etc.)
 
-PowerShell 5.1+ or PowerShell 7+
+3. **Open PowerShell as Administrator**
 
-Internet connection
+4. **Allow script execution for this session only (recommended)**:
+   ```powershell
+   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+   ```
 
-Must be run as Administrator
+   > 💡 This does not permanently change your system security settings.  
+   > Once you close PowerShell, it returns to default policy.
 
-🚀 Installation & Usage
+5. (Optional) If the script was downloaded from the internet, unblock it first:
+   ```powershell
+   Unblock-File -Path "C:\Path\To\UpdateWindowsAuto.ps1"
+   ```
 
-Download or copy the script:
-UpdateWindowsAuto.ps1
+6. **Run the script**:
+   ```powershell
+   .\UpdateWindowsAuto.ps1
+   ```
 
-Save it anywhere (for example: Desktop, C:\Scripts, etc.)
+7. The script will:
+   - Check if **PSWindowsUpdate** is installed  
+   - Prompt to install it if missing  
+   - Then automatically scan, download, and install all updates
 
-Open PowerShell as Administrator
+---
 
-Allow script execution for this session only (recommended):
+## 🧩 Example Output
 
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+=== Checking Administrator privileges ===
+Running as Administrator... OK
 
+=== Checking PowerShell Gallery repository ===
+Repository 'PSGallery' is trusted... OK
 
-💡 This does not permanently change your system security settings.
-Once you close PowerShell, it returns to default policy.
+=== Installing Windows Updates ===
+Found 3 updates available...
+Installing updates... Please wait...
+System will reboot automatically if required.
+```
 
-(Optional) If the script was downloaded from the internet, unblock it first:
+---
 
-Unblock-File -Path "C:\Path\To\UpdateWindowsAuto.ps1"
+## 🪪 License
 
-
-Run the script:
-
-.\UpdateWindowsAuto.ps1
-
-
-The script will:
-
-Check if PSWindowsUpdate is installed
-
-Prompt to install it if missing
-
-Then automatically scan, download, and install all updates
+This project is licensed under the **MIT License** — feel free to use, modify, and distribute it.  
+See the [LICENSE](LICENSE) file for details.
