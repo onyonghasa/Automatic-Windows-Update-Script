@@ -1,7 +1,7 @@
 # 🪟 Automatic Windows Update Script  
 ### `UpdateWindowsAuto.ps1`
 
-A simple PowerShell script that automatically checks for and installs all available Windows Updates.  
+A simple PowerShell script that automatically checks for and installs all available Windows Updates on **Windows 10 / 11**.  
 It also ensures that the required PowerShell repository and module (`PSWindowsUpdate`) are properly configured before running updates.
 
 ---
@@ -37,27 +37,38 @@ It also ensures that the required PowerShell repository and module (`PSWindowsUp
 3. **Open PowerShell as Administrator**
 
 4. **Allow script execution for this session only (recommended)**:
-   ```powershell
-   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-   ```
 
-   > 💡 This does not permanently change your system security settings.  
-   > Once you close PowerShell, it returns to default policy.
+```powershell
+set-executionpolicy -scope process -executionpolicy bypass
+```
+
+> 💡 On Windows 10, PowerShell will display the "Execution Policy Change" prompt:
+>
+> ```
+> Execution Policy Change
+> [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
+> ```
+>
+> Type `Y` and press **Enter**.  
+> This change is temporary and only applies to the current PowerShell session. Once PowerShell is closed, the execution policy returns to the default system setting.
 
 5. (Optional) If the script was downloaded from the internet, unblock it first:
-   ```powershell
-   Unblock-File -Path "C:\Path\To\UpdateWindowsAuto.ps1"
-   ```
+
+```powershell
+Unblock-File -Path "C:\Path\To\UpdateWindowsAuto.ps1"
+```
 
 6. **Run the script**:
-   ```powershell
-   .\UpdateWindowsAuto.ps1
-   ```
 
-7. The script will:
-   - Check if **PSWindowsUpdate** is installed  
-   - Prompt to install it if missing  
-   - Then automatically scan, download, and install all updates
+```powershell
+.\UpdateWindowsAuto.ps1
+```
+
+7. **The script will**:
+
+- Check if **PSWindowsUpdate** is installed  
+- Prompt to install it if missing  
+- Then automatically scan, download, and install all updates
 
 ---
 
