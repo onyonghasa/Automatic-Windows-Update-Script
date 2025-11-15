@@ -1,8 +1,9 @@
 # 🪟 Automatic Windows Update Script  
 ### `UpdateWindowsAuto.ps1`
 
-A simple PowerShell script that automatically checks for and installs all available Windows Updates on **Windows 10 / 11**.  
-It also ensures that the required PowerShell repository and module (`PSWindowsUpdate`) are properly configured before running updates.
+A simple PowerShell script that automatically checks for, downloads, and installs all available Windows Updates on **Windows 10 / 11**.  
+The script ensures that the required PowerShell repository and module (`PSWindowsUpdate`) are properly configured before running updates.  
+This version will **ask the user before restarting the system** after installing updates.
 
 ---
 
@@ -12,9 +13,10 @@ It also ensures that the required PowerShell repository and module (`PSWindowsUp
 - Verifies that **PowerShell Gallery (PSGallery)** is trusted
 - Installs **PSWindowsUpdate** module if missing
 - Scans for available Windows updates
-- Installs all updates automatically (`-AcceptAll -AutoReboot`)
+- Installs all updates automatically (`-AcceptAll`) but **does not auto-reboot**
+- Prompts the user to restart the system if required
 - Saves a **log file** of update history to `C:\WindowsUpdate_Log.txt`
-- Displays all progress directly in PowerShell console
+- Displays all progress directly in the PowerShell console
 
 ---
 
@@ -68,23 +70,34 @@ Unblock-File -Path "C:\Path\To\UpdateWindowsAuto.ps1"
 
 - Check if **PSWindowsUpdate** is installed  
 - Prompt to install it if missing  
-- Then automatically scan, download, and install all updates
+- Scan, download, and install all updates  
+- If a restart is required, **ask the user** before rebooting
 
 ---
 
 ## 🧩 Example Output
 
 ```
-=== Checking Administrator privileges ===
-Running as Administrator... OK
+=== Windows Auto Update Script ===
 
-=== Checking PowerShell Gallery repository ===
-Repository 'PSGallery' is trusted... OK
+[✓] PSGallery is already trusted.
+[✓] PSWindowsUpdate module already installed.
 
-=== Installing Windows Updates ===
-Found 3 updates available...
+=== Checking for available updates ===
+
+Available updates:
+ KB5006670  Security Update  Installed
+ KB5006746  Cumulative Update Installed
+
+Starting installation of all updates...
 Installing updates... Please wait...
-System will reboot automatically if required.
+
+Updates installed. A restart is required. Do you want to restart now? (Y/N): N
+Restart postponed. Please remember to restart later.
+
+Saving update history to: C:\WindowsUpdate_Log.txt
+
+=== Completed ===
 ```
 
 ---
