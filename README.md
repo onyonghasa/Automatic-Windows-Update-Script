@@ -29,7 +29,35 @@ This version will **ask the user before restarting the system** after installing
 
 ---
 
-## 🚀 Installation & Usage
+## ⚡ Run Directly from GitHub (One-Line Command)
+
+You can run the script directly from GitHub without downloading it manually.
+
+### ▶ Run immediately (execute in memory)
+
+Open **PowerShell as Administrator** and run:
+
+```powershell
+irm https://raw.githubusercontent.com/onyonghasa/Automatic-Windows-Update-Script/main/UpdateWindowsAuto.ps1 | iex
+```
+
+> ⚠️ This method executes the script directly from the internet.  
+> Only use this if you trust the source repository.
+
+---
+
+### ✅ Safer Method (Download first, then run)
+
+Recommended if you want to inspect the script before execution:
+
+```powershell
+irm https://raw.githubusercontent.com/onyonghasa/Automatic-Windows-Update-Script/main/UpdateWindowsAuto.ps1 -OutFile UpdateWindowsAuto.ps1
+.\UpdateWindowsAuto.ps1
+```
+
+---
+
+## 🚀 Installation & Usage (Manual Download)
 
 1. **Download or copy** the script:  
    `UpdateWindowsAuto.ps1`
